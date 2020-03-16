@@ -6,7 +6,7 @@ namespace image_resizer
     class Program
     {
         public static char file_separator = System.IO.Path.DirectorySeparatorChar;
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Resizing Image(s)");
 
@@ -16,14 +16,14 @@ namespace image_resizer
             Console.WriteLine("Starting Resize of Batch:");
             
             System.Diagnostics.Stopwatch stopWatch = System.Diagnostics.Stopwatch.StartNew();
-            resizeImagesInPath(in_file_base, out_file_base);
+            ResizeImagesInPath(in_file_base, out_file_base);
             Console.WriteLine("Elapsed time\t\t{0} ms", stopWatch.ElapsedMilliseconds);
             
             Console.WriteLine("Completed.");
             Console.ReadLine();
         }
 
-        static void resizeImagesInPath(string in_file_base, string out_file_base)
+        static void ResizeImagesInPath(string in_file_base, string out_file_base)
         {
             int file_width = 100;
             int file_height = 75;
@@ -37,12 +37,17 @@ namespace image_resizer
                 string file_name_without_extension = System.IO.Path.GetFileNameWithoutExtension(in_file_name);
                 string out_file_path = $@"{out_file_base}{file_separator}{file_name_without_extension}.{file_width}x{file_height}{file_extension}";
 
-                bool OperationStatus = resizeImageFromPath_Width_x_Height(in_file_name, out_file_path, file_width, file_height);
+                bool OperationStatus = ResizeImageFromPath_Width_x_Height(in_file_name, out_file_path, file_width, file_height);
             });
         }
 
         private static void VerifyAndCreateDirectories(string in_file_base, string out_file_base)
         {
+
+            if (!System.IO.Directory.Exists(in_file_base))
+            {
+                System.IO.Directory.CreateDirectory(in_file_base);
+            }
 
             if (!System.IO.Directory.Exists(out_file_base))
             {
@@ -61,7 +66,7 @@ namespace image_resizer
             return FilesFromFolder;
         }
 
-        static bool resizeImageFromPath_Width_x_Height(string in_file_name, string out_file_path, int file_width, int file_height)
+        static bool ResizeImageFromPath_Width_x_Height(string in_file_name, string out_file_path, int file_width, int file_height)
         {
             bool OperationStatus = false;
             // Read from file
@@ -73,10 +78,12 @@ namespace image_resizer
                 {
                     //Console.WriteLine("\tStarting Resize:");
                     System.Diagnostics.Stopwatch stopWatch = System.Diagnostics.Stopwatch.StartNew();
-                    MagickGeometry size = new MagickGeometry(file_width, file_height);
-                    // This will resize the image to a fixed size without maintaining the aspect ratio.
-                    // Normally an image will be resized to fit inside the specified size.
-                    size.IgnoreAspectRatio = true;
+                    MagickGeometry size = new MagickGeometry(file_width, file_height)
+                    {
+                        // This will resize the image to a fixed size without maintaining the aspect ratio.
+                        // Normally an image will be resized to fit inside the specified size.
+                        IgnoreAspectRatio = true
+                    };
 
                     image.Resize(size);
 
