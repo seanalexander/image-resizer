@@ -37,14 +37,12 @@ namespace image_resizer
             string[] FilesFromFolder = GetFilesFromFolder(in_file_base);
 
             System.Threading.Tasks.Parallel.ForEach(FilesFromFolder, (in_file_name) =>
-            //foreach (string in_file_name in FilesFromFolder)
             {
                 string file_extension = System.IO.Path.GetExtension(in_file_name);
                 string file_name_without_extension = System.IO.Path.GetFileNameWithoutExtension(in_file_name);
                 string out_file_path = $@"{out_file_base}{file_separator}{file_name_without_extension}.{file_width}x{file_height}{file_extension}";
 
                 bool OperationStatus = ResizeImageFromPath_Width_x_Height(in_file_name, out_file_path, file_width, file_height);
-            //}
             });
         }
 
