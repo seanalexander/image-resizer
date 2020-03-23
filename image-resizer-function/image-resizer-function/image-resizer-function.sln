@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "image-resizer-function", "image-resizer-function.csproj", "{15ACE90B-0AB9-47B9-BD2F-6EE33D67949A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15ACE90B-0AB9-47B9-BD2F-6EE33D67949A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15ACE90B-0AB9-47B9-BD2F-6EE33D67949A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15ACE90B-0AB9-47B9-BD2F-6EE33D67949A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15ACE90B-0AB9-47B9-BD2F-6EE33D67949A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F96830CC-A72D-460F-8A49-C25CF0097B19}
+	EndGlobalSection
+EndGlobal

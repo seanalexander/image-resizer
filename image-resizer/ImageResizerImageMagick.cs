@@ -2,13 +2,13 @@
 using ImageMagick;
 using Microsoft.Extensions.Logging;
 
-namespace image_resizer
+namespace ImageResizer
 {
-    public class MyApplication
+    public class ImageResizerImageMagick
     {
         private readonly ILogger _logger;
         public static char file_separator = System.IO.Path.DirectorySeparatorChar;
-        public MyApplication(ILogger<MyApplication> logger)
+        public ImageResizerImageMagick(ILogger<ImageResizerImageMagick> logger)
         {
             _logger = logger;
         }
