@@ -44,7 +44,7 @@ namespace ImageResizer
     {
         private readonly ILogger _logger;
         public char file_separator = System.IO.Path.DirectorySeparatorChar;
-        private const string connectionString = "DefaultEndpointsProtocol=https;AccountName=tenimageresizer01;AccountKey=l4MfDtIZdZaEHkFgcsBFaMu3Ylm74bloMHN+AYcr7Xkilp91RZ50Qv5E8xtNDrCyATL9Nw5xiPVKBCIZgMODNA==;EndpointSuffix=core.windows.net";
+        private const string connectionString = "DefaultEndpointsProtocol=https;AccountName=an;AccountKey=ak;EndpointSuffix=core.windows.net";
         private const string queueName = "allimages";
         public AzureBlobQueueReader(ILogger<AzureBlobQueueReader> logger)
         {
