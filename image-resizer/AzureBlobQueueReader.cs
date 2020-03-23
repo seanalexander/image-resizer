@@ -97,7 +97,7 @@ namespace ImageResizer
 
                                                         if (_BlobCreated != null)
                                                         {
-                                                            using (Operation.Time("Logging the BlobCreatedItem has"))
+                                                            using (Operation.Time("Deserializing the BlobCreated Item has"))
                                                             {
                                                                 //Log the BlobCreatedItem
                                                                 LogBlobCreatedItem(_BlobCreated);
